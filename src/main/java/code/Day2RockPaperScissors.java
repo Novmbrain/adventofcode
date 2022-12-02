@@ -28,12 +28,16 @@ public class Day2RockPaperScissors {
           "Z", // Scissors
           ImmutableMap.<String, Integer>of("A", 0, "B", 6, "C", 3));
 
+  /**
+   * 12679
+   * @throws IOException
+   */
   @Test
   public void part1() throws IOException {
+
     int count = 0;
-    String currentLine = "";
-    while ((currentLine = bufferedReader.readLine()) != null) {
-      String[] plays = currentLine.split(" ");
+    while (bufferedReader.ready()) {
+      String[] plays = bufferedReader.readLine().split(" ");
       count += shapeToScorePart1.get(plays[1]);
       count += myShapeToScore.get(plays[1]).get(plays[0]);
     }
@@ -42,27 +46,31 @@ public class Day2RockPaperScissors {
   }
 
   private static final ImmutableMap<String, Integer> endToScore =
-          ImmutableMap.of("X", 0, "Y", 3, "Z", 6);
+      ImmutableMap.of("X", 0, "Y", 3, "Z", 6);
 
   private static final ImmutableMap<String, Integer> shapeToScorePart2 =
-          ImmutableMap.of("A", 1, "B", 2, "C", 3);
+      ImmutableMap.of("A", 1, "B", 2, "C", 3);
 
-  private static final ImmutableMap<String, ImmutableMap<String, String>> expectedEndToExpectedShape =
-      ImmutableMap.of(
-          "X", // Lose
-          ImmutableMap.<String, String>of("A", "C", "B", "A", "C", "B"),
-          "Y", // Draw
-          ImmutableMap.<String, String>of("A", "A", "B", "B", "C", "C"),
-          "Z", // Win
-          ImmutableMap.<String, String>of("A", "B", "B", "C", "C", "A"));
+  private static final ImmutableMap<String, ImmutableMap<String, String>>
+      expectedEndToExpectedShape =
+          ImmutableMap.of(
+              "X", // Lose
+              ImmutableMap.<String, String>of("A", "C", "B", "A", "C", "B"),
+              "Y", // Draw
+              ImmutableMap.<String, String>of("A", "A", "B", "B", "C", "C"),
+              "Z", // Win
+              ImmutableMap.<String, String>of("A", "B", "B", "C", "C", "A"));
 
+  /**
+   * 14470
+   * @throws IOException
+   */
   @Test
   public void part2() throws IOException {
     int count = 0;
-    String currentLine = "";
 
-    while ((currentLine = bufferedReader.readLine()) != null) {
-      String[] plays = currentLine.split(" ");
+    while (bufferedReader.ready()) {
+      String[] plays =  bufferedReader.readLine().split(" ");
       count += endToScore.get(plays[1]);
       count += shapeToScorePart2.get(expectedEndToExpectedShape.get(plays[1]).get(plays[0]));
     }

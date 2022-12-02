@@ -1,9 +1,11 @@
 package code;
 
+import com.google.common.collect.MinMaxPriorityQueue;
 import org.junit.jupiter.api.Test;
 import util.InputHelper;
 
 import java.io.*;
+import java.util.Arrays;
 import java.util.OptionalLong;
 import java.util.PriorityQueue;
 
@@ -21,8 +23,9 @@ public class Day1CalorieCounting {
   public void CalorieCountingPart1Solution1() throws IOException {
     int max = Integer.MIN_VALUE;
     int count = 0;
-    String currentLine = "";
-    while ((currentLine = bufferedReader.readLine()) != null) {
+
+    while (bufferedReader.ready()) {
+      String currentLine = bufferedReader.readLine();
       if (currentLine.equals("")) {
         max = Math.max(max, count);
         count = 0;
@@ -34,25 +37,28 @@ public class Day1CalorieCounting {
     System.out.println(max);
   }
 
+  /**
+   * 200116
+   * @throws IOException
+   */
   @Test
   public void CalorieCountingPart2() throws IOException {
-    PriorityQueue<Integer> priorityQueue = new PriorityQueue<>(3, (n1, n2) -> n2 - n1);
+
+    MinMaxPriorityQueue<Integer> maxHeap =
+        MinMaxPriorityQueue.<Integer>orderedBy((n1, n2) -> n2 - n1).maximumSize(3).create();
 
     int count = 0;
-    String currentLine = "";
-    while ((currentLine = bufferedReader.readLine()) != null) {
+
+    while (bufferedReader.ready()) {
+      String currentLine = bufferedReader.readLine();
       if (currentLine.equals("")) {
-        priorityQueue.add(count);
+        maxHeap.add(count);
         count = 0;
       } else {
         count += Integer.valueOf(currentLine);
       }
     }
 
-    int result = 0;
-    for (int i = 0; i < 3; i++) {
-      result += priorityQueue.remove();
-    }
-    System.out.println(result);
+    System.out.println(maxHeap.stream().mapToInt(number -> number.intValue()).sum());
   }
 }
