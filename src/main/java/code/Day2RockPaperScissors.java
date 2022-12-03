@@ -14,12 +14,12 @@ import java.io.IOException;
  * @date: 02/12/2022
  */
 public class Day2RockPaperScissors {
-  private static BufferedReader bufferedReader = InputHelper.readFile("day2input2.txt");
+  private static final BufferedReader bufferedReader = InputHelper.readFile("day2input.txt");
 
   private static final ImmutableMap<String, Integer> shapeToScorePart1 =
       ImmutableMap.of("X", 1, "Y", 2, "Z", 3);
 
-  private static ImmutableMap<String, ImmutableMap<String, Integer>> myShapeToScore =
+  private static final ImmutableMap<String, ImmutableMap<String, Integer>> myShapeToScore =
       ImmutableMap.of(
           "X", // Rock
           ImmutableMap.<String, Integer>of("A", 3, "B", 0, "C", 6),
@@ -30,6 +30,7 @@ public class Day2RockPaperScissors {
 
   /**
    * 12679
+   *
    * @throws IOException
    */
   @Test
@@ -63,6 +64,7 @@ public class Day2RockPaperScissors {
 
   /**
    * 14470
+   *
    * @throws IOException
    */
   @Test
@@ -70,7 +72,7 @@ public class Day2RockPaperScissors {
     int count = 0;
 
     while (bufferedReader.ready()) {
-      String[] plays =  bufferedReader.readLine().split(" ");
+      String[] plays = bufferedReader.readLine().split(" ");
       count += endToScore.get(plays[1]);
       count += shapeToScorePart2.get(expectedEndToExpectedShape.get(plays[1]).get(plays[0]));
     }
