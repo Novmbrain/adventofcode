@@ -50,8 +50,6 @@ public class Day3RucksackReorganization {
             .map(item -> Character.isLowerCase(item) ? item - 'a' + 1 : item - 'A' + 27)
             .mapToInt(mappedItem -> mappedItem)
             .sum();
-
-    System.out.println(sum);
   }
 
   @Test
@@ -75,8 +73,6 @@ public class Day3RucksackReorganization {
               .findFirst()
               .get();
 
-      System.out.println("same item: " + sameItem);
-
       sharedItems.add(sameItem);
     }
 
@@ -85,13 +81,5 @@ public class Day3RucksackReorganization {
             .map(item -> Character.isLowerCase(item) ? item - 'a' + 1 : item - 'A' + 27)
             .mapToInt(mappedItem -> mappedItem)
             .sum();
-
-    System.out.println(sum);
-  }
-
-  @Test
-  public void test() {
-    System.out.println('p' - 'a' + 1);
-    System.out.println('P' - 'A' + 27);
   }
 }
