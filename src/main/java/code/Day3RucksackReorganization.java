@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
  * @date: 03/12/2022
  */
 public class Day3RucksackReorganization {
-  private static BufferedReader bufferedReader = InputHelper.readFile("day3input.txt");
+  private static final BufferedReader bufferedReader = InputHelper.readFile("day3input.txt");
 
   /**
    * 7597
