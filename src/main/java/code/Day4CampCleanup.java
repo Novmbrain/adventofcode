@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
  * @date: 04/12/2022
  */
 public class Day4CampCleanup {
-  BufferedReader bufferedReader = InputHelper.readFile("day4input.txt");
+  BufferedReader bufferedReader = InputHelper.readFile("day4Input.txt");
 
   @Test
   public void part1() throws IOException {

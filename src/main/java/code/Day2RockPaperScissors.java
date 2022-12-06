@@ -14,7 +14,7 @@ import java.io.IOException;
  * @date: 02/12/2022
  */
 public class Day2RockPaperScissors {
-  private static final BufferedReader bufferedReader = InputHelper.readFile("day2input.txt");
+  private static final BufferedReader bufferedReader = InputHelper.readFile("day2Input.txt");
 
   private static final ImmutableMap<String, Integer> shapeToScorePart1 =
       ImmutableMap.of("X", 1, "Y", 2, "Z", 3);
