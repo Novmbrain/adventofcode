@@ -18,7 +18,7 @@ import java.util.regex.Pattern;
  * @date: 05/12/2022
  */
 public class Day5SupplyStacks {
-  BufferedReader bufferedReader = InputHelper.readFile("day5input.txt");
+  BufferedReader bufferedReader = InputHelper.readFile("day5Input.txt");
 
   private static List<Stack<Character>> intialization() {
     List<Stack<Character>> list = new ArrayList<>();
